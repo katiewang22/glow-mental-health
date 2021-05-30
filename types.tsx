@@ -10,11 +10,18 @@ export type RootStackParamList = {
 
 export type BottomTabParamList = {
   Home: undefined;
+  Writing: undefined;
+  Journal: undefined;
   Website: undefined;
 };
 
 export type HomeParamList = {
   HomeScreen: undefined;
+};
+
+export type JournalParamList = {
+  WritingScreen: undefined;
+  JournalScreen: undefined
 };
 
 export type WebsiteParamList = {

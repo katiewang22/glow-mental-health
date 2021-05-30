@@ -4,27 +4,37 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
 
-import Colors from '../constants/Colors';
-import useColorScheme from '../hooks/useColorScheme';
 import HomeScreen from '../screens/HomeScreen';
 import WebsiteScreen from '../screens/WebsiteScreen';
-import { BottomTabParamList, HomeParamList, WebsiteParamList } from '../types';
+import WritingScreen from '../screens/WritingScreen';
+import JournalScreen from '../screens/JournalScreen';
+import { BottomTabParamList, HomeParamList, JournalParamList, WebsiteParamList } from '../types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
 export default function BottomTabNavigator() {
-  const colorScheme = useColorScheme();
 
   return (
     <BottomTab.Navigator
       initialRouteName="Home"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}
+      tabBarOptions={{ 
+        activeTintColor: '#F28482',
+        inactiveBackgroundColor: '#F7EDE2',
+        activeBackgroundColor: '#F7EDE2',
+      }}
     >
       <BottomTab.Screen
         name="Home"
         component={HomeNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-home" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Journal"
+        component={JournalNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-journal" color={color} />,
         }}
       />
       <BottomTab.Screen
@@ -51,9 +61,43 @@ function HomeNavigator() {
       <HomeStack.Screen
         name="HomeScreen"
         component={HomeScreen}
-        options={{ headerTitle: 'Home' }}
+        options={{ 
+          headerTitle: 'Home',
+          headerStyle: {
+            backgroundColor: '#F7EDE2',
+          },
+        }}
       />
     </HomeStack.Navigator>
+  );
+}
+
+const JournalStack = createStackNavigator<JournalParamList>();
+
+function JournalNavigator() {
+  return (
+    <JournalStack.Navigator>
+      <JournalStack.Screen
+        name="WritingScreen"
+        component={WritingScreen}
+        options={{ 
+          headerTitle: 'Journal',
+          headerStyle: {
+            backgroundColor: '#F7EDE2',
+          },
+        }}
+      />
+      <JournalStack.Screen
+        name="JournalScreen"
+        component={JournalScreen}
+        options={{ 
+          headerTitle: 'Journal Entry',
+          headerStyle: {
+            backgroundColor: '#F7EDE2',
+          },
+        }}
+      />
+    </JournalStack.Navigator>
   );
 }
 
@@ -65,7 +109,12 @@ function WebsiteNavigator() {
       <WebsiteStack.Screen
         name="WebsiteScreen"
         component={WebsiteScreen}
-        options={{ headerTitle: 'Website' }}
+        options={{ 
+          headerTitle: 'Website',
+          headerStyle: {
+            backgroundColor: '#F7EDE2',
+          },
+        }}
       />
     </WebsiteStack.Navigator>
   );

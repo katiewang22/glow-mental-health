@@ -12,6 +12,11 @@ export default {
               HomeScreen: 'one',
             },
           },
+          Journal: {
+            screens: {
+              JournalScreen: 'two',
+            },
+          },
           Website: {
             screens: {
               WebsiteScreen: 'two',
