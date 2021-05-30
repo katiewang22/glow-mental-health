@@ -1,5 +1,5 @@
 
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
@@ -7,8 +7,8 @@ import * as React from 'react';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import HomeScreen from '../screens/HomeScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
-import { BottomTabParamList, HomeParamList, TabTwoParamList } from '../types';
+import WebsiteScreen from '../screens/WebsiteScreen';
+import { BottomTabParamList, HomeParamList, WebsiteParamList } from '../types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -28,10 +28,10 @@ export default function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoNavigator}
+        name="Website"
+        component={WebsiteNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="web" size={30} color={color} />,
         }}
       />
     </BottomTab.Navigator>
@@ -57,16 +57,16 @@ function HomeNavigator() {
   );
 }
 
-const TabTwoStack = createStackNavigator<TabTwoParamList>();
+const WebsiteStack = createStackNavigator<WebsiteParamList>();
 
-function TabTwoNavigator() {
+function WebsiteNavigator() {
   return (
-    <TabTwoStack.Navigator>
-      <TabTwoStack.Screen
-        name="TabTwoScreen"
-        component={TabTwoScreen}
-        options={{ headerTitle: 'Tab Two Title' }}
+    <WebsiteStack.Navigator>
+      <WebsiteStack.Screen
+        name="WebsiteScreen"
+        component={WebsiteScreen}
+        options={{ headerTitle: 'Website' }}
       />
-    </TabTwoStack.Navigator>
+    </WebsiteStack.Navigator>
   );
 }
