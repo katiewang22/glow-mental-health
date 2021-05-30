@@ -8,7 +8,8 @@ import HomeScreen from '../screens/HomeScreen';
 import WebsiteScreen from '../screens/WebsiteScreen';
 import WritingScreen from '../screens/WritingScreen';
 import JournalScreen from '../screens/JournalScreen';
-import { BottomTabParamList, HomeParamList, JournalParamList, WebsiteParamList } from '../types';
+import DrawingScreen from '../screens/DrawingScreen';
+import { BottomTabParamList, HomeParamList, JournalParamList, DrawingParamList, WebsiteParamList } from '../types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -35,6 +36,13 @@ export default function BottomTabNavigator() {
         component={JournalNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-journal" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Drawing"
+        component={DrawingNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="brush" color={color} />,
         }}
       />
       <BottomTab.Screen
@@ -98,6 +106,25 @@ function JournalNavigator() {
         }}
       />
     </JournalStack.Navigator>
+  );
+}
+
+const DrawingStack = createStackNavigator<DrawingParamList>();
+
+function DrawingNavigator() {
+  return (
+    <DrawingStack.Navigator>
+      <DrawingStack.Screen
+        name="DrawingScreen"
+        component={DrawingScreen}
+        options={{ 
+          headerTitle: 'Drawing',
+          headerStyle: {
+            backgroundColor: '#F7EDE2',
+          },
+        }}
+      />
+    </DrawingStack.Navigator>
   );
 }
 

@@ -17,9 +17,14 @@ export default {
               JournalScreen: 'two',
             },
           },
+          Drawing: {
+            screens: {
+              DrawingScreen: 'three',
+            },
+          },
           Website: {
             screens: {
-              WebsiteScreen: 'two',
+              WebsiteScreen: 'four',
             },
           },
         },
