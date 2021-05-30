@@ -52,10 +52,6 @@ export const quotes = [
         "author": "Eckhart Tolle"
     },
     {
-        "text": "You just gotta keep livin' man.",
-        "author": "Matthew McConaughey"
-    },
-    {
         "text": "These faults and mistakes are what I am, making up the brightest stars in the constellation of my life.",
         "author": "Kim Namjoon"
     },

@@ -24,7 +24,7 @@ export default function HomeScreen() {
   if (!fontsLoaded) {
     return (
       <View>
-        <Text>Loading...</Text>
+        <ImageBackground source={require('../assets/images/splash.png')} style={styles.image}/>
       </View>
     );
   } else {
