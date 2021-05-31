@@ -17,14 +17,19 @@ export default {
               JournalScreen: 'two',
             },
           },
+          Checklist: {
+            screens: {
+              ChecklistScreen: 'three',
+            },
+          },
           Drawing: {
             screens: {
-              DrawingScreen: 'three',
+              DrawingScreen: 'four',
             },
           },
           Website: {
             screens: {
-              WebsiteScreen: 'four',
+              WebsiteScreen: 'five',
             },
           },
         },

@@ -12,6 +12,7 @@ export type BottomTabParamList = {
   Home: undefined;
   Writing: undefined;
   Journal: undefined;
+  Checklist: undefined;
   Drawing: undefined;
   Website: undefined;
 };
@@ -22,7 +23,11 @@ export type HomeParamList = {
 
 export type JournalParamList = {
   WritingScreen: undefined;
-  JournalScreen: undefined
+  JournalScreen: undefined;
+};
+
+export type ChecklistParamList = {
+  ChecklistScreen: undefined;
 };
 
 export type DrawingParamList = {

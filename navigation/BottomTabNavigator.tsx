@@ -1,5 +1,5 @@
 
-import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
+import { AntDesign, MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
@@ -9,7 +9,8 @@ import WebsiteScreen from '../screens/WebsiteScreen';
 import WritingScreen from '../screens/WritingScreen';
 import JournalScreen from '../screens/JournalScreen';
 import DrawingScreen from '../screens/DrawingScreen';
-import { BottomTabParamList, HomeParamList, JournalParamList, DrawingParamList, WebsiteParamList } from '../types';
+import ChecklistScreen from '../screens/ChecklistScreen';
+import { BottomTabParamList, HomeParamList, JournalParamList, ChecklistParamList, DrawingParamList, WebsiteParamList } from '../types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -36,6 +37,13 @@ export default function BottomTabNavigator() {
         component={JournalNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-journal" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Checklist"
+        component={ChecklistNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <AntDesign name="checkcircle" size={27} color={color} />,
         }}
       />
       <BottomTab.Screen
@@ -106,6 +114,25 @@ function JournalNavigator() {
         }}
       />
     </JournalStack.Navigator>
+  );
+}
+
+const ChecklistStack = createStackNavigator<ChecklistParamList>();
+
+function ChecklistNavigator() {
+  return (
+    <ChecklistStack.Navigator>
+      <ChecklistStack.Screen
+        name="ChecklistScreen"
+        component={ChecklistScreen}
+        options={{ 
+          headerTitle: 'Todo List',
+          headerStyle: {
+            backgroundColor: '#F7EDE2',
+          },
+        }}
+      />
+    </ChecklistStack.Navigator>
   );
 }
 
