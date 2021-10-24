@@ -1,19 +1,36 @@
-
 import * as React from 'react';
-import { Draw } from "@benjeau/react-native-draw";
+import { StyleSheet } from 'react-native';
+import { WebView } from 'react-native-webview';
+
+import { View } from '../components/Themed';
+
+// Creates prop
+interface NativeWebViewProps {
+  target: string;
+}
+
+// WebView structure
+const NativeWebView = (props: NativeWebViewProps): JSX.Element => {
+  return <WebView source={{ uri: props.target }} style={styles.webViewStyles}/>;
+};
 
 export default function DrawingScreen() {
   return (
-    <Draw
-      height={550}
-      width={415}
-      initialValues={{
-        color: "#000000",
-        thickness: 10,
-        paths: []
-      }}
-      brushPreview="none"
-      canvasStyle={{ elevation: 0, backgroundColor: "#ffffff" }}
-    />
+    <View style={styles.container}>
+      <NativeWebView target="https://sketch.io/mobile/" />
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  webViewStyles: {
+    height: 500,
+    width: 420
+  }
+});
